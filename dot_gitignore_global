@@ -1,0 +1,9 @@
+*.log
+*.tmp
+*.swp
+*.pt
+*.pth
+*~
+
+.env
+.DS_Store

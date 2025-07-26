@@ -1,0 +1,61 @@
+[user]
+    name = "DucAnnee" 
+    email = "nhdan1110@gmail.com"
+
+[alias]
+	ac = "!git add . ; git commit -m"
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	last = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -1 HEAD
+	amend = commit --amend --no-edit
+	unstage = "restore --staged"
+	uncommit = "reset --soft HEAD~1"
+
+[init]
+	defaultBranch = main
+
+[core]
+	editor = nvim
+	autocrlf = input
+	excludesfile = ~/Documents/GitHub/dotfiles/git/.gitignore_global
+
+[status]
+	showUntrackedFiles = all
+
+[advice]
+	statusHints = false
+	
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+
+[pull]
+	rebase = true
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = auto
+
+[color "branch"]
+	current = green bold
+	local = green
+	remote = red bold
+
+[color "status"]
+	added = blue bold
+	changed = white bold
+	untracked = red bold
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
