@@ -50,7 +50,7 @@ config.window_padding = {
 
 config.text_background_opacity = 1.0
 
-local bg_img = (os.getenv("XDG_CONFIG_HOME") or os.getenv("HOME") .. "/.config") .. "/assets/background.jpg"
+local bg_img = os.getenv("XDG_CONFIG_HOME") .. "../assets/background.jpg"
 
 local function exists(path)
 	local f = io.open(path, "r")
@@ -62,12 +62,14 @@ config.background = exists(bg_img)
 			{
 				source = { File = bg_img },
 				hsb = { hue = 1.0, saturation = 1.02, brightness = 0.25 },
+				vertical_align = "Middle",
+				horizontal_align = "Center",
 			},
 			{
 				source = { Color = "#282c35" },
 				width = "100%",
 				height = "100%",
-				opacity = 0.6,
+				opacity = 0.7,
 			},
 		}
 	or {
