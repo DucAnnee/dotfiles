@@ -1,0 +1,62 @@
+# we added a config file for you to customize HyDE before loading zshrc
+# Edit $ZDOTDIR/.user.zsh to customize HyDE before loading zshrc
+
+#  Plugins 
+# oh-my-zsh plugins are loaded  in $ZDOTDIR/.user.zsh file, see the file for more information
+
+HIST_STAMPS="dd/mm/yyyy"
+
+# # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
+# alias mkdir='mkdir -p'
+
+#  This is your file 
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+#  Aliases 
+## Directory navigation shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+## File and directory listing with eza
+alias c='clear'                                                        # clear terminal
+alias l='eza -lh --icons=auto'                                         # long list
+alias ls='eza -1 --icons=auto'                                         # short list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias ld='eza -lhD --icons=auto'                                       # long list dirs
+alias lt='eza --icons=auto --tree'                                     # list folder as tree
+
+## AUR helper shortcuts 
+alias un='$aurhelper -Rns'                                             # uninstall package
+alias up='$aurhelper -Syu'                                             # update system/package/aur
+alias pl='$aurhelper -Qs'                                              # list installed package
+alias pa='$aurhelper -Ss'                                              # list available package
+alias pc='$aurhelper -Sc'                                              # remove unused cache
+alias po='$aurhelper -Qtdq | $aurhelper -Rns -'                        # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
+
+# Git
+alias gs='git status'
+alias gf='git fetch'
+alias gp='git pull'
+alias gc='git commit -m'
+
+## Other
+alias chez='chezmoi'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias ff='fastfetch'
+alias cf='clear && fastfetch'
+
+# Starship and zoxide
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+
+
+# unset -f command_not_found_handler # Uncomment to prevent searching for commands not found in package manager
