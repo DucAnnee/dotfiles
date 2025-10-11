@@ -33,12 +33,20 @@ alias ld='eza -lhD --icons=auto'                                       # long li
 alias lt='eza --icons=auto --tree'                                     # list folder as tree
 
 ## AUR helper shortcuts 
-alias un='$aurhelper -Rns'                                             # uninstall package
-alias up='$aurhelper -Syu'                                             # update system/package/aur
-alias pl='$aurhelper -Qs'                                              # list installed package
-alias pa='$aurhelper -Ss'                                              # list available package
-alias pc='$aurhelper -Sc'                                              # remove unused cache
-alias po='$aurhelper -Qtdq | $aurhelper -Rns -'                        # remove unused packages, also try > $aurhelper -Qqd | $aurhelper -Rsu --print -
+alias yun='yay -Rns'                                                   # uninstall package
+alias yup='yay -Syu'                                                   # update system/package/aur
+alias yl='yay -Qs'                                                     # list installed package
+alias ya='yay -Ss'                                                     # list available package
+alias yc='yay -Sc'                                                     # remove unused cache
+alias yo='yay -Qtdq | yay -Rns -'                                      # remove unused packages, also try > yay -Qqd | yay -Rsu --print -
+
+## Pacman shortcuts
+alias pun='sudo pacman -Rns'                                           # uninstall package
+alias pup='sudo pacman -Syu'                                           # update system/package
+alias pl='pacman -Qs'                                                  # list installed package
+alias pa='pacman -Ss'                                                  # list available package
+alias pc='sudo pacman -Sc'                                             # remove unused cache
+alias po='pacman -Qtdq | sudo pacman -Rns -'                     
 
 # Git
 alias gs='git status'
