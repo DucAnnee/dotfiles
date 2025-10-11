@@ -1,4 +1,4 @@
-require "nvchad.mappings"
+require("nvchad.mappings")
 
 local map = vim.keymap.set
 
@@ -13,8 +13,26 @@ map("n", "<leader>ss", "<cmd>split<CR>", { desc = "Horizontal split" })
 
 -- conda nvim
 map("n", "<leader>cc", function()
-  vim.cmd "CondaActivate"
+	vim.cmd("CondaActivate")
 end, { desc = "Choose conda environment" })
+
+-- Copitlot Chat
+local chat = require("CopilotChat")
+map("n", "<leader>aa", chat.toggle, { desc = "AI Toggle" })
+map("v", "<leader>aa", chat.open, { desc = "AI Open" })
+map("n", "<leader>ax", chat.reset, { desc = "AI Reset" })
+map("n", "<leader>as", chat.stop, { desc = "AI Stop" })
+map("n", "<leader>am", chat.select_model, { desc = "AI Models" })
+map({ "n", "v" }, "<leader>ap", chat.select_prompt, { desc = "AI Prompts" })
+map({ "n", "v" }, "<leader>aq", function()
+	vim.ui.input({
+		prompt = "AI Question> ",
+	}, function(input)
+		if input ~= "" then
+			chat.ask(input)
+		end
+	end)
+end, { desc = "AI Question" })
 
 -- Obsidian
 -- local obs = require "obsidian"

@@ -67,7 +67,7 @@ config.background = exists(bg_img)
 				source = { Color = "#282c35" },
 				width = "100%",
 				height = "100%",
-				opacity = 0.6,
+				opacity = 0.8,
 			},
 		}
 	or {
