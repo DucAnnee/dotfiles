@@ -6,16 +6,10 @@ return {
 			{ "zbirenbaum/copilot.lua" }, -- or zbirenbaum/copilot.lua
 			{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
 		},
-		lazy = true,
-		event = "BufEnter",
-
+		-- lazy = true,
 		build = "make tiktoken", -- Only on MacOS or Linux
 		opts = function()
 			return require("configs.copilot-chat")
-		end,
-
-		config = function(_, opts)
-			require("CopilotChat").setup({ opts })
 		end,
 	},
 	------------------------------------------- ts autotag --------------------------------------------
