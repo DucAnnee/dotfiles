@@ -66,5 +66,23 @@ alias cf='clear && fastfetch'
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
+# direnv
+eval "$(direnv hook zsh)"
+
+# nvim and nvim with zoxide integration
+nv() {
+  # If pass a path or file, use it; otherwise open cwd
+  if [ "$#" -gt 0 ]; then
+    neovide "$@" &>/dev/null &
+  else
+    neovide . &>/dev/null &
+  fi
+  disown
+}
+
+nvz() {
+  # usage: nvz projname
+  z "$1" && neovide . &>/dev/null & disown
+}
 
 # unset -f command_not_found_handler # Uncomment to prevent searching for commands not found in package manager
