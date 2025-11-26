@@ -8,10 +8,9 @@ return {
 		border = "rounded",
 		zindex = 100,
 	},
-	model = "gpt-5-codex",
+	model = "claude-sonnet-4.5",
 	sticky = {
 		"#buffer:listed",
-		"#glob:**/*.tsx",
 	},
 	diff = "block",
 	show_help = true,
