@@ -61,7 +61,7 @@ alias dex='docker exec -it'
 alias dlogs='docker logs -f'
 
 ## python related
-alias se='source venv/bin/activate'                                    # activate virtual environment
+alias se='source .venv/bin/activate'                                   # activate virtual environment
 
 ## Git
 alias gs='git status'
