@@ -34,33 +34,12 @@ map({ "n", "v" }, "<leader>aq", function()
 	end)
 end, { desc = "AI Question" })
 
--- Obsidian
--- local obs = require "obsidian"
--- -- Quick switch another note
--- map("n", "<leader>oo", function()
---   vim.cmd "ObsidianQuickSwitch"
--- end, { desc = "Obsidian Quick switch" })
--- -- Create new note
--- map("n", "<leader>on", function()
---   vim.cmd "ObsidianNew"
--- end, { desc = "Obsidian New note" })
--- -- Insert template
--- map("n", "<leader>otp", function()
---   vim.cmd "ObsidianTemplate"
--- end, { desc = "Obsidian Insert template" })
--- -- Create new note with template
--- map("n", "<leader>otn", function()
---   vim.cmd "ObsidianNewFromTemplate"
--- end, { desc = "Obsidian New note from Template" })
--- -- Paste image from clipboard
--- map("n", "<leader>oi", function()
---   vim.cmd "ObsidianPasteImg"
--- end, { desc = "Obsidian Paste image" })
--- -- Open TOC
--- map("n", "<leader>otc", function()
---   vim.cmd "ObsidianTOC"
--- end, { desc = "Obsidian Open TOC" })
--- -- Smart action
--- map("n", "<leader>o<CR>", function()
---   return obs.util.smart_action()
--- end, { desc = "Obsidian Smart action" })
+-- Resizing splits
+map("n", "<C-S-Up>", "<cmd>resize +2<CR>", { desc = "Increase height" })
+map("n", "<C-S-Down>", "<cmd>resize -2<CR>", { desc = "Decrease height" })
+map("n", "<C-S-Left>", "<cmd>vertical resize -2<CR>", { desc = "Decrease width" })
+map("n", "<C-S-Right>", "<cmd>vertical resize +2<CR>", { desc = "Increase width" })
+
+-- Navigation
+vim.keymap.set("n", "*", "*zz")
+vim.keymap.set("n", "#", "#zz")

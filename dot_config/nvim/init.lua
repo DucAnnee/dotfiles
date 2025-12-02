@@ -31,6 +31,7 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require("options")
 require("nvchad.autocmds")
+require("autocmds")
 
 vim.schedule(function()
 	require("mappings")
@@ -42,7 +43,7 @@ if vim.g.neovide then
 
 	-- Scale / perf
 	vim.g.neovide_scale_factor = 0.9
-	vim.g.neovide_refresh_rate = 60
+	vim.g.neovide_refresh_rate = 165
 	vim.g.neovide_refresh_rate_idle = 5
 	vim.g.neovide_scroll_animation_length = 0.3
 

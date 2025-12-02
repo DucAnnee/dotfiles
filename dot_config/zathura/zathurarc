@@ -1,5 +1,5 @@
 # General things
-set recolor true # Dark mode integration for lighthouse
+set recolor false # Dark mode integration for lighthouse
 set recolor-keephue true
 set selection-clipboard clipboard # Set clipboard copy
 set window-title-basename true    # show just filename, not full path
