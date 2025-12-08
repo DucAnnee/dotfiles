@@ -105,4 +105,4 @@ nvz() {
   z "$1" && neovide . &>/dev/null & disown
 }
 
-# unset -f command_not_found_handler # Uncomment to prevent searching for commands not found in package manager
+unset -f command_not_found_handler # prevent searching for commands not found in package manager
