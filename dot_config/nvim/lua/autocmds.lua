@@ -2,6 +2,7 @@ local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
 vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH
 
 local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
 
 -- Auto-save when leaving insert mode
 autocmd("InsertLeave", {
@@ -60,4 +61,18 @@ autocmd("BufReadCmd", {
 			end
 		end)
 	end,
+})
+
+augroup("remember_folds", {})
+
+autocmd("BufWinLeave", {
+	group = "remember_folds",
+	pattern = "*",
+	command = "silent! mkview",
+})
+
+autocmd("BufWinEnter", {
+	group = "remember_folds",
+	pattern = "*",
+	command = "silent! loadview",
 })

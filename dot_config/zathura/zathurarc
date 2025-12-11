@@ -19,8 +19,6 @@ map K zoom in
 unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
-map r reload
-map R toggle_recolor
 
 map b toggle_page_mode # Toggle dual page mode
 
@@ -28,16 +26,18 @@ unmap u # unmaps u and d for default full-up/down scroll
 unmap d
 map u scroll full-up
 map d scroll full-down
+map j feedkeys "C-Down"
+map k feedkeys "C-Up"
 
 map w zoom fit-width
 map h zoom fit-height
 map 0 zoom 100
 
-map /         search            # default, but just to be explicit
 map n         search-next
 map N         search-prev
 
 map g         goto             # enter page number
+map gg        goto 1
 map G         goto end         # last page
 
 # stop at page boundries
@@ -51,5 +51,3 @@ set guioptions ""
 
 set statusbar-bg                "#073642" # base02
 set statusbar-fg                "#93a1a1" # base1
-
-set smooth-scroll "true"

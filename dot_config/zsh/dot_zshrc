@@ -106,3 +106,29 @@ nvz() {
 }
 
 unset -f command_not_found_handler # prevent searching for commands not found in package manager
+
+## auto activate virtualenv in .venv folder
+autoload -U add-zsh-hook
+
+_auto_venv_global() {
+  local dir="$PWD"
+
+  # Walk up directories to find nearest .venv
+  while [[ "$dir" != "/" ]]; do
+    if [[ -d "$dir/.venv" ]]; then
+      if [[ "$VIRTUAL_ENV" != "$dir/.venv" ]]; then
+        source "$dir/.venv/bin/activate"
+      fi
+      return
+    fi
+    dir="${dir:h}"
+  done
+
+  # If no .venv found but we had one active, deactivate
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+    deactivate 2>/dev/null || true
+  fi
+}
+
+add-zsh-hook chpwd _auto_venv_global
+_auto_venv_global
