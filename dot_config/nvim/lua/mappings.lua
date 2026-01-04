@@ -43,3 +43,7 @@ map("n", "<C-S-Right>", "<cmd>vertical resize +2<CR>", { desc = "Increase width"
 -- Navigation
 vim.keymap.set("n", "*", "*zz")
 vim.keymap.set("n", "#", "#zz")
+
+-- Namu
+vim.keymap.set("n", "<leader>sy", ":Namu symbols<cr>", { desc = "Jump to LSP symbol", silent = true })
+vim.keymap.set("n", "<leader>sw", ":Namu workspace<cr>", { desc = "LSP Symbols - Workspace", silent = true })
