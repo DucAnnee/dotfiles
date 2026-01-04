@@ -3,9 +3,13 @@ set recolor false # Dark mode integration for lighthouse
 set recolor-keephue true
 set selection-clipboard clipboard # Set clipboard copy
 set window-title-basename true    # show just filename, not full path
+
+# Statusbar settings
 set statusbar-home-tilde true     # ~ instead of full $HOME path
 set statusbar-basename true
 set statusbar-page-percent true   # show current page as percentage
+set statusbar-bg                "#073642" # base02
+set statusbar-fg                "#93a1a1" # base1
 
 # Font size
 set font 'monospace normal 16'
@@ -19,26 +23,21 @@ map K zoom in
 unmap f
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
-
 map b toggle_page_mode # Toggle dual page mode
-
 unmap u # unmaps u and d for default full-up/down scroll
 unmap d
 map u scroll full-up
 map d scroll full-down
-map j feedkeys "C-Down"
-map k feedkeys "C-Up"
-
+map j feedkeys "<C-Down>"
+map k feedkeys "<C-Up>"
 map w zoom fit-width
 map h zoom fit-height
 map 0 zoom 100
-
+map <Space> toggle_index
 map n         search-next
 map N         search-prev
-
-map g         goto             # enter page number
-map gg        goto 1
-map G         goto end         # last page
+map G         goto-last-page
+map g         goto-first-page
 
 # stop at page boundries
 set scroll-page-aware "true"
@@ -48,6 +47,3 @@ set scroll-step 40
 # zoom settings
 set zoom-min 5
 set guioptions ""
-
-set statusbar-bg                "#073642" # base02
-set statusbar-fg                "#93a1a1" # base1
