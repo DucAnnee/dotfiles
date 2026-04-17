@@ -1,13 +1,29 @@
 return {
+	------------------------------------------ rnder-markdown -----------------------------------------
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
+		ft = { "markdown", "mdx" },
+	},
+	------------------------------------------ git-conflict  ------------------------------------------
+	{
+		"akinsho/git-conflict.nvim",
+		version = "*",
+		config = true,
+		event = "VeryLazy",
+		opts = function()
+			return require("configs.git-conflict")
+		end,
+	},
 	---------------------------------------------- namu  ----------------------------------------------
 	{
 		"bassamsdata/namu.nvim",
-		opts = {
-			global = {},
-			namu_symbols = { -- Specific Module options
-				options = {},
-			},
-		},
+		event = "VeryLazy",
 	},
 	------------------------------------------- nvim chat  --------------------------------------------
 	{
@@ -216,6 +232,7 @@ return {
 	------------------------------------------- treesitter --------------------------------------------
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
 		opts = function()
 			return require("configs.treesitter")
 		end,

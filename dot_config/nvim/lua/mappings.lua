@@ -47,3 +47,34 @@ vim.keymap.set("n", "#", "#zz")
 -- Namu
 vim.keymap.set("n", "<leader>sy", ":Namu symbols<cr>", { desc = "Jump to LSP symbol", silent = true })
 vim.keymap.set("n", "<leader>sw", ":Namu workspace<cr>", { desc = "LSP Symbols - Workspace", silent = true })
+
+-- Easier exit from terminal mode
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
+
+-- Git-Conflict
+vim.keymap.set("n", "<leader>co", ":GitConflictChooseOurs<cr>", { desc = "Git Conflict Choose Ours", silent = true })
+vim.keymap.set(
+	"n",
+	"<leader>ct",
+	":GitConflictChooseTheirs<cr>",
+	{ desc = "Git Conflict Choose Theirs", silent = true }
+)
+vim.keymap.set("n", "<leader>cb", ":GitConflictChooseBoth<cr>", { desc = "Git Conflict Choose Both", silent = true })
+vim.keymap.set("n", "<leader>cn", ":GitConflictChooseNone<cr>", { desc = "Git Conflict Choose None", silent = true })
+vim.keymap.set("n", "<leader>cl", ":GitConflictListQf<cr>", { desc = "Git Conflict List", silent = true })
+vim.keymap.set("n", "<leader>]x", ":GitConflictNextConflict<cr>", { desc = "Git Conflict Next", silent = true })
+vim.keymap.set("n", "<leader>[x", ":GitConflictPrevConflict<cr>", { desc = "Git Conflict Previous", silent = true })
+
+-- Floaterm
+vim.keymap.set({ "n", "t" }, "<A-i>", function()
+	require("nvchad.term").toggle({
+		pos = "float",
+		id = "floatTerm",
+		float_opts = {
+			row = 0.05,
+			col = 0.05,
+			width = 0.9,
+			height = 0.9,
+		},
+	})
+end, { desc = "terminal toggle floating term" })

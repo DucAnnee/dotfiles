@@ -8,7 +8,7 @@ return {
 		border = "rounded",
 		zindex = 100,
 	},
-	model = "claude-sonnet-4.5",
+	model = "gpt-5.4-mini",
 	sticky = {
 		"#buffer:listed",
 	},

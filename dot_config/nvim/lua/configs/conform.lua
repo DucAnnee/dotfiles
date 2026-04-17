@@ -9,6 +9,7 @@ local options = {
 		typescript = { "prettierd" },
 		javascript = { "prettierd" },
 		json = { "prettierd" },
+		assembly = { "asmfmt" },
 	},
 
 	format_on_save = {
