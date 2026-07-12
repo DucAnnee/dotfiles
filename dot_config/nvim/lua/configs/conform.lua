@@ -1,15 +1,17 @@
 local options = {
 	formatters_by_ft = {
-		lua = { "stylua" },
-		python = { "black" },
-		cpp = { "clang-format" },
-		c = { "clang-format" },
 		typescriptreact = { "prettierd" },
 		javascriptreact = { "prettierd" },
 		typescript = { "prettierd" },
 		javascript = { "prettierd" },
-		json = { "prettierd" },
 		assembly = { "asmfmt" },
+		markdown = { "prettierd" },
+		python = { "black" },
+		assembly = { "asmfmt" },
+		json = { "prettierd" },
+		lua = { "stylua" },
+		cpp = { "clang-format" },
+		c = { "clang-format" },
 	},
 
 	format_on_save = {

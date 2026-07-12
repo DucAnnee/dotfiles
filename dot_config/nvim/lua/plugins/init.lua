@@ -5,8 +5,22 @@ return {
 		lazy = false, -- we don't want to lazy load VimTeX
 		-- tag = "v2.15", -- uncomment to pin to a specific release
 		init = function()
-			-- VimTeX configuration goes here, e.g.
 			vim.g.vimtex_view_method = "zathura"
+			vim.g.vimtex_compiler_method = "latexmk"
+
+			vim.g.vimtex_compiler_latexmk = {
+				callback = 1,
+				continuous = 1,
+				executable = "latexmk",
+				options = {
+					"-lualatex",
+					"-synctex=1",
+					"-interaction=nonstopmode",
+					"-file-line-error",
+				},
+			}
+
+			vim.g.vimtex_quickfix_mode = 0
 		end,
 	},
 	--------------------------------------- vim-tmux-navigator ----------------------------------------
