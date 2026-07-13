@@ -1,0 +1,134 @@
+# we added a config file for you to customize HyDE before loading zshrc
+# Edit $ZDOTDIR/.user.zsh to customize HyDE before loading zshrc
+
+#  Plugins 
+# oh-my-zsh plugins are loaded  in $ZDOTDIR/.user.zsh file, see the file for more information
+
+HIST_STAMPS="dd/mm/yyyy"
+
+# # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
+# alias mkdir='mkdir -p'
+
+#  This is your file 
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+#  Aliases 
+## Directory navigation shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+## File and directory listing with eza
+alias c='clear'                                                        # clear terminal
+alias l='eza -lh --icons=auto'                                         # long list
+alias ls='eza -1 --icons=auto'                                         # short list
+alias ll='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias ld='eza -lhD --icons=auto'                                       # long list dirs
+alias lt='eza --icons=auto --tree'                                     # list folder as tree
+
+## AUR helper shortcuts 
+alias yun='yay -Rns'                                                   # uninstall package
+alias yup='yay -Syu'                                                   # update system/package/aur
+alias yl='yay -Qs'                                                     # list installed package
+alias ya='yay -Ss'                                                     # list available package
+alias yc='yay -Sc'                                                     # remove unused cache
+alias yo='yay -Qtdq | yay -Rns -'                                      # remove unused packages, also try > yay -Qqd | yay -Rsu --print -
+
+## Pacman shortcuts
+alias pun='sudo pacman -Rns'                                           # uninstall package
+alias pup='sudo pacman -Syu'                                           # update system/package
+alias pl='pacman -Qs'                                                  # list installed package
+alias pa='pacman -Ss'                                                  # list available package
+alias pc='sudo pacman -Sc'                                             # remove unused cache
+alias po='pacman -Qtdq | sudo pacman -Rns -'                           # remove unused packages, also try > pacman -Qqd | sudo pacman -Rsu --print - 
+alias pi='sudo pacman -S'                                              # install package
+
+## Docker
+alias d='docker'
+alias dps='docker ps'
+alias dpa='docker ps -a'
+alias di='docker images'
+alias db='docker build -t'
+alias drm='docker rm'
+alias drmi='docker rmi'
+alias dex='docker exec -it'
+alias dlogs='docker logs -f'
+
+## python related
+alias se='source .venv/bin/activate'                                   # activate virtual environment
+
+## Git
+alias gs='git status'
+alias gf='git fetch'
+alias gp='git pull'
+alias gc='git commit -m'
+alias gaa='git add .'
+alias gco='git checkout'
+alias gb='git branch'
+alias gl='git log --oneline --graph --decorate --all'
+alias gpo='git push origin'
+
+## Other
+alias chez='chezmoi'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias ff='fastfetch'
+alias cf='clear && fastfetch'
+
+## Starship and zoxide
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+
+## direnv
+eval "$(direnv hook zsh)"
+
+## nvim and nvim with zoxide integration
+nv() {
+  # If pass a path or file, use it; otherwise open cwd
+  if [ "$#" -gt 0 ]; then
+    neovide "$@" &>/dev/null &
+  else
+    neovide . &>/dev/null &
+  fi
+  disown
+}
+
+nvz() {
+  # usage: nvz projname
+  z "$1" && neovide . &>/dev/null & disown
+}
+
+unset -f command_not_found_handler # prevent searching for commands not found in package manager
+
+## auto activate virtualenv in .venv folder
+autoload -U add-zsh-hook
+
+_auto_venv_global() {
+  local dir="$PWD"
+
+  # Walk up directories to find nearest .venv
+  while [[ "$dir" != "/" ]]; do
+    if [[ -d "$dir/.venv" ]]; then
+      if [[ "$VIRTUAL_ENV" != "$dir/.venv" ]]; then
+        source "$dir/.venv/bin/activate"
+      fi
+      return
+    fi
+    dir="${dir:h}"
+  done
+
+  # If no .venv found but we had one active, deactivate
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+    deactivate 2>/dev/null || true
+  fi
+}
+
+add-zsh-hook chpwd _auto_venv_global
+_auto_venv_global

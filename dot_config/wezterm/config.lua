@@ -23,9 +23,6 @@ end
 
 config.default_prog = default_prog
 
-config.front_end = "WebGpu"
--- webgpu_power_preference = "LowPower"
-
 -- 2️⃣ Font and font-weight control:
 config.font = wezterm.font_with_fallback({
 	{ family = "CaskaydiaCove Nerd Font", weight = "Bold" },
@@ -69,7 +66,7 @@ config.background = exists(bg_img)
 				source = { Color = "#282c35" },
 				width = "100%",
 				height = "100%",
-				opacity = 0.7,
+				opacity = 0.8,
 			},
 		}
 	or {
@@ -82,8 +79,10 @@ config.background = exists(bg_img)
 	}
 
 -- 4️⃣ Performance flags (GPU path):
+config.front_end = "Software"
+-- webgpu_power_preference = "LowPower"
 config.enable_wayland = false
-config.animation_fps = 2
+config.animation_fps = 60
 config.cursor_blink_ease_in = "EaseOut"
 config.cursor_blink_ease_out = "EaseIn"
 
