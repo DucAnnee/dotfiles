@@ -1,22 +1,30 @@
 local options = {
 	formatters_by_ft = {
-		typescriptreact = { "prettierd" },
-		javascriptreact = { "prettierd" },
-		typescript = { "prettierd" },
-		javascript = { "prettierd" },
-		assembly = { "asmfmt" },
-		markdown = { "prettierd" },
+		typescriptreact = { "prettier" },
+		javascriptreact = { "prettier" },
+		typescript = { "prettier" },
+		javascript = { "prettier" },
+		markdown = { "prettier" },
 		python = { "black" },
-		assembly = { "asmfmt" },
-		json = { "prettierd" },
+		-- java = { "google-java-format" },
+		json = { "prettier" },
 		lua = { "stylua" },
 		cpp = { "clang-format" },
 		c = { "clang-format" },
+		mermaid = { "mermaidfmt" },
+	},
+
+	formatters = {
+		mermaidfmt = {
+			command = "mermaidfmt",
+			args = {},
+			stdin = true,
+		},
 	},
 
 	format_on_save = {
 		timeout_ms = 5000,
-		lsp_fallback = true,
+		lsp_fallback = false,
 	},
 }
 

@@ -2,6 +2,28 @@ local wezterm = require("wezterm")
 local act = wezterm.action
 local config = {}
 
+local podi = require("workspaces.podi")
+local diallink = require("workspaces.diallink")
+local conf = require("workspaces.conf")
+
+local function workspace_exists(name)
+	for _, workspace in ipairs(wezterm.mux.get_workspace_names()) do
+		if workspace == name then
+			return true
+		end
+	end
+
+	return false
+end
+
+local function switch_workspace(name, setup)
+	if not workspace_exists(name) then
+		setup()
+	end
+
+	wezterm.mux.set_active_workspace(name)
+end
+
 if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
@@ -13,9 +35,6 @@ if target:find("windows") then
 	default_prog = {
 		"pwsh.exe",
 		"-NoLogo",
-		"-NoExit",
-		"-ExecutionPolicy",
-		"Bypass",
 	}
 elseif target:find("linux") then
 	default_prog = { "zsh", "-l" }
@@ -47,7 +66,7 @@ config.window_padding = {
 
 config.text_background_opacity = 1.0
 
-local bg_img = os.getenv("XDG_CONFIG_HOME") .. "../assets/background.jpg"
+local bg_img = os.getenv("XDG_CONFIG_HOME") .. "/assets/background.jpg"
 
 local function exists(path)
 	local f = io.open(path, "r")
@@ -120,6 +139,45 @@ config.keys = {
 		key = "w",
 		mods = "CTRL",
 		action = wezterm.action.CloseCurrentTab({ confirm = true }),
+	},
+	-- Reload
+	{
+		key = "r",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ReloadConfiguration,
+	},
+
+	-- Workspaces
+	-- Ctrl+Shift+W → Show Launcher with Fuzzy and Workspaces flags
+	{
+		key = "w",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ShowLauncherArgs({
+			flags = "FUZZY|WORKSPACES",
+		}),
+	},
+	{
+		key = "1",
+		mods = "CTRL|ALT",
+		action = wezterm.action_callback(function()
+			switch_workspace("podi", podi.setup)
+		end),
+	},
+
+	{
+		key = "2",
+		mods = "CTRL|ALT",
+		action = wezterm.action_callback(function()
+			switch_workspace("diallink", diallink.setup)
+		end),
+	},
+
+	{
+		key = "3",
+		mods = "CTRL|ALT",
+		action = wezterm.action_callback(function()
+			switch_workspace("conf", conf.setup)
+		end),
 	},
 }
 
