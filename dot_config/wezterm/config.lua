@@ -66,7 +66,7 @@ config.window_padding = {
 
 config.text_background_opacity = 1.0
 
-local bg_img = os.getenv("XDG_CONFIG_HOME") .. "/assets/background.jpg"
+local bg_img = wezterm.home_dir .. "/assets/background.jpg"
 
 local function exists(path)
 	local f = io.open(path, "r")
