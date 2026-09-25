@@ -3,13 +3,17 @@ local local_registry = vim.fn.stdpath("config"):gsub("\\", "/") .. "/mason-local
 local options = {
 	ensure_installed = {
 		"lua-language-server",
+		"typescript-language-server",
 		"ruff",
 		"black",
+		"biome",
 		"isort",
 		"clangd",
 		"clang-format",
+		"jdtls",
 		"stylua",
-		"prettier",
+		-- "prettier",
+		"prettierd",
 	}, -- not an option from mason.nvim
 
 	PATH = "skip",

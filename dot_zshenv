@@ -1,0 +1,7 @@
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+
+# Load the real zshenv
+[[ -r "$ZDOTDIR/.zshenv" ]] && source "$ZDOTDIR/.zshenv"
+
+# Load secrets
+[[ -f "$HOME/.config/secrets/env" ]] && source "$HOME/.config/secrets/env"
