@@ -1,0 +1,234 @@
+# ============================================================
+# Global
+# ============================================================
+
+[tui]
+preview = true
+
+
+# ============================================================
+# Project: Podi
+# ============================================================
+
+# ------------------------------------------------------------
+# Session
+# ------------------------------------------------------------
+
+[[session]]
+name = "podi"
+path = "~/GitHub/podi"
+alias = "podi"
+startup_command = "tmux kill-window && tmux select-window -t :1"
+windows = [
+  "mgmt-nvim",
+  "mgmt-dev",
+  "mgmt-ai",
+
+  "booth-nvim",
+  "booth-dev",
+  "booth-ai",
+
+  "core-nvim",
+  "core-ai",
+]
+
+
+# ------------------------------------------------------------
+# Management Website
+# ------------------------------------------------------------
+
+[[window]]
+name = "mgmt-nvim"
+path = "~/GitHub/podi/management-website"
+startup_script = "nvim"
+
+[[window]]
+name = "mgmt-dev"
+path = "~/GitHub/podi/management-website"
+
+[[window]]
+name = "mgmt-ai"
+path = "~/GitHub/podi/management-website"
+startup_script = "codex resume --last"
+
+
+# ------------------------------------------------------------
+# Booth
+# ------------------------------------------------------------
+
+[[window]]
+name = "booth-nvim"
+path = "~/GitHub/podi/booth-app"
+startup_script = "nvim"
+
+[[window]]
+name = "booth-dev"
+path = "~/GitHub/podi/booth-app"
+
+[[window]]
+name = "booth-ai"
+path = "~/GitHub/podi/booth-app"
+startup_script = "codex resume --last"
+
+
+# ------------------------------------------------------------
+# Core
+# ------------------------------------------------------------
+
+[[window]]
+name = "core-nvim"
+path = "~/GitHub/podi/podi-core"
+startup_script = "nvim"
+
+[[window]]
+name = "core-ai"
+path = "~/GitHub/podi/podi-core"
+startup_script = "codex resume --last"
+
+
+
+# ============================================================
+# Project: DialLink
+# ============================================================
+
+# ------------------------------------------------------------
+# Session
+# ------------------------------------------------------------
+
+[[session]]
+name = "dial-link"
+path = "~/GitHub/DialLink"
+alias = "dl"
+startup_command = "tmux kill-window && tmux select-window -t :1"
+windows = [
+  "dl-phone-system",
+  "dl-open-api",
+  "dl-web",
+  "dl-account-hub",
+  "dl-call-queue",
+]
+
+
+# ------------------------------------------------------------
+# Phone System
+# ------------------------------------------------------------
+
+[[window]]
+name = "dl-phone-system"
+path = "~/GitHub/DialLink/phone-system"
+
+
+# ------------------------------------------------------------
+# Open API
+# ------------------------------------------------------------
+
+[[window]]
+name = "dl-open-api"
+path = "~/GitHub/DialLink/open-api"
+
+
+# ------------------------------------------------------------
+# Web
+# ------------------------------------------------------------
+
+[[window]]
+name = "dl-web"
+path = "~/GitHub/DialLink/web"
+
+
+# ------------------------------------------------------------
+# Account Hub
+# ------------------------------------------------------------
+
+[[window]]
+name = "dl-account-hub"
+path = "~/GitHub/DialLink/account-hub"
+
+
+# ------------------------------------------------------------
+# Call Queue
+# ------------------------------------------------------------
+
+[[window]]
+name = "dl-call-queue"
+path = "~/GitHub/DialLink/call-queue"
+
+
+
+# ============================================================
+# Project: DHCP / DNS Anomaly Detection
+# ============================================================
+
+# ------------------------------------------------------------
+# Session
+# ------------------------------------------------------------
+
+[[session]]
+name = "dhcp-dns-anomaly"
+path = "~/GitHub/dns-abnormal-detection"
+alias = "dhcp"
+startup_command = "tmux kill-window && tmux select-window -t :1"
+windows = [
+  "dhcp-nvim",
+  "dhcp-shell",
+  "dhcp-git",
+]
+
+
+# ------------------------------------------------------------
+# Windows
+# ------------------------------------------------------------
+
+[[window]]
+name = "dhcp-nvim"
+path = "~/GitHub/dns-abnormal-detection"
+startup_script = "source .venv/bin/activate && nvim"
+
+[[window]]
+name = "dhcp-shell"
+path = "~/GitHub/dns-abnormal-detection"
+startup_script = "source .venv/bin/activate"
+
+[[window]]
+name = "dhcp-git"
+path = "~/GitHub/dns-abnormal-detection"
+startup_script = "lazygit"
+
+
+
+# ============================================================
+# Project: Dotfiles
+# ============================================================
+
+# ------------------------------------------------------------
+# Session
+# ------------------------------------------------------------
+
+[[session]]
+name = "dotfiles"
+path = "~/.local/share/chezmoi"
+alias = "dot"
+windows = [
+  "dot-nvim",
+  "dot-git",
+  "dot-shell",
+]
+
+
+# ------------------------------------------------------------
+# Windows
+# ------------------------------------------------------------
+
+[[window]]
+name = "dot-nvim"
+path = "~/.local/share/chezmoi"
+startup_script = "nvim"
+
+[[window]]
+name = "dot-git"
+path = "~/.local/share/chezmoi"
+startup_script = "lazygit"
+
+[[window]]
+name = "dot-shell"
+path = "~/.local/share/chezmoi"
