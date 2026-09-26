@@ -178,6 +178,10 @@ config.keys = {
 		action = wezterm.action_callback(function()
 			switch_workspace("conf", conf.setup)
 		end),
+	{
+		key = "Enter",
+		mods = "SHIFT",
+		action = wezterm.action.SendString("\n"),
 	},
 }
 

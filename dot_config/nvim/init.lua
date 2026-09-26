@@ -39,10 +39,10 @@ end)
 
 if vim.g.neovide then
 	-- Font (string is safest)
-	vim.o.guifont = "CaskaydiaCove Nerd Font:h12:b"
+	vim.o.guifont = "CaskaydiaCove Nerd Font:h9:b"
 
 	-- Scale / perf
-	vim.g.neovide_scale_factor = 0.9
+	vim.g.neovide_scale_factor = 1
 	vim.g.neovide_refresh_rate = 165
 	vim.g.neovide_refresh_rate_idle = 5
 	vim.g.neovide_scroll_animation_length = 0.3
