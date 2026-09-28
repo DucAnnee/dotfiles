@@ -115,7 +115,7 @@ windows = [
 
 [[window]]
 name = "dl-phone-system"
-path = "~/GitHub/DialLink/phone-system"
+path = "~/GitHub/DialLink/diallink-server-phone-system"
 
 
 # ------------------------------------------------------------
@@ -124,7 +124,7 @@ path = "~/GitHub/DialLink/phone-system"
 
 [[window]]
 name = "dl-open-api"
-path = "~/GitHub/DialLink/open-api"
+path = "~/GitHub/DialLink/diallink-openapi-development"
 
 
 # ------------------------------------------------------------
@@ -133,7 +133,7 @@ path = "~/GitHub/DialLink/open-api"
 
 [[window]]
 name = "dl-web"
-path = "~/GitHub/DialLink/web"
+path = "~/GitHub/DialLink/diallink-web-phone-system"
 
 
 # ------------------------------------------------------------
@@ -142,7 +142,7 @@ path = "~/GitHub/DialLink/web"
 
 [[window]]
 name = "dl-account-hub"
-path = "~/GitHub/DialLink/account-hub"
+path = "~/GitHub/DialLink/diallink-server-account-hub"
 
 
 # ------------------------------------------------------------
@@ -151,7 +151,7 @@ path = "~/GitHub/DialLink/account-hub"
 
 [[window]]
 name = "dl-call-queue"
-path = "~/GitHub/DialLink/call-queue"
+path = "~/GitHub/DialLink/diallink-server-call-queue"
 
 
 
