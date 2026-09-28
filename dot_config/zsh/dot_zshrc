@@ -74,6 +74,7 @@ alias se='source .venv/bin/activate'                                   # activat
 
 ## Git
 alias gs='git status'
+alias gsw='git switch'
 alias gf='git fetch'
 alias gp='git pull'
 alias gc='git commit -m'
