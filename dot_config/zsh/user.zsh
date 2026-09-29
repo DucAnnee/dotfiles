@@ -24,6 +24,14 @@ if [[ ${HYDE_ZSH_NO_PLUGINS} != "1" ]]; then
     #  OMZ Plugins 
     # manually add your oh-my-zsh plugins here
     plugins=(
-        "sudo"
+        git
+        zsh-autosuggestions
+        zsh-syntax-highlighting
+        web-search
+        copyfile
+        copybuffer
+        dirhistory
+        autojump
+        fzf
     )
 fi

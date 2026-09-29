@@ -86,9 +86,6 @@ alias gpo='git push origin'
 
 ## Other
 alias chez='chezmoi'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 alias ff='fastfetch'
 alias cf='clear && fastfetch'
 
@@ -115,7 +112,7 @@ nvz() {
   z "$1" && neovide . &>/dev/null & disown
 }
 
-unset -f command_not_found_handler # prevent searching for commands not found in package manager
+# unset -f command_not_found_handler # prevent searching for commands not found in package manager
 
 ## auto activate virtualenv in .venv folder
 autoload -U add-zsh-hook
