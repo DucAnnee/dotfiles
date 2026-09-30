@@ -5,7 +5,17 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+-- Format and save with Ctrl - S
+map({ "n", "i", "v" }, "<C-s>", function()
+	require("conform").format({
+		async = false,
+		lsp_format = "fallback",
+	})
+
+	vim.cmd("write")
+end, {
+	desc = "Format and save",
+})
 
 -- Split
 map("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Vertical split" })
