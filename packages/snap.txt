@@ -1,0 +1,4 @@
+# Optional applications only. One name per line, optionally --classic.
+# Uncomment the applications you actually want and set INSTALL_SNAP=1.
+# code --classic
+# slack

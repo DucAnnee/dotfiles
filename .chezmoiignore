@@ -1,0 +1,9 @@
+README.md
+setup.sh
+config.env
+packages/**
+scripts/**
+install_scripts/**
+assets/**
+tests/**
+AGENTS.md
