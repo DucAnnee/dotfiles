@@ -8,6 +8,11 @@ local M = {}
 M.base46 = {
   theme = "penguin",
   transparency = true,
+  -- Applied after transparency so documentation floats have a solid background.
+  hl_override = {
+    NormalFloat = { fg = "white", bg = "one_bg" },
+    FloatBorder = { fg = "white", bg = "one_bg" },
+  },
 }
 
 M.ui = {
